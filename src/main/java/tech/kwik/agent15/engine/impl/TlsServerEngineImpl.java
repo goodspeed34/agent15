@@ -279,6 +279,7 @@ public class TlsServerEngineImpl extends TlsEngineImpl implements TlsServerEngin
         serverMessageSender.send(finished);
         transcriptHash.recordServer(finished);
         state.computeApplicationSecrets();
+        state.computeExporterSecret();
 
         status = Status.WaitFinished;
     }
